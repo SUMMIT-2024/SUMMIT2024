@@ -1,0 +1,265 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face{
+    font-family: 'Futura';
+    src: url('caligrafias/FuturaStd-Book.otf') format('truetype');
+}
+
+body {
+    font-family: 'Futura';
+    font-weight: bold;
+    background-image: url('Imagenes/contact.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+header {
+    background-color: rgba(93, 56, 153, 0.9);
+    padding: 10px 0;
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    position: relative;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-family: 'Futura';
+}
+
+nav ul li .dropdown {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(75, 35, 139, 0.9);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    visibility: hidden;
+    min-width: 220px; /* Aumenta el ancho mínimo del dropdown */
+    padding: 10px 0;
+}
+
+nav ul li .dropdown li {
+    margin: 0;
+}
+
+nav ul li .dropdown li a {
+    padding: 10px 20px;
+    display: block;
+    white-space: nowrap;
+}
+
+nav ul li:hover .dropdown {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    height: 100vh;
+    text-align: center;
+    padding: 20px;
+    padding-top: 150px;
+    box-sizing: border-box;
+}
+
+.contact-item {
+    width: calc(25% - 40px);
+    max-width: 300px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(93, 56, 153, 0.4);
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-item h2 {
+    margin-bottom: 10px;
+}
+
+.contact-item p {
+    margin-bottom: 5px;
+}
+
+footer {
+    background-color: rgba(93, 56, 153, 0.9);
+    color: white;
+    padding: 40px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-container img {
+    height: 150px;
+    flex-shrink: 0;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.footer-content p {
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+/* Botón de navegación oculto en pantallas grandes */
+.nav-toggle {
+    display: none;
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-toggle {
+        display: block;
+        font-size: 24px;
+        color: #fff;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 1001;
+    }
+
+    nav ul {
+        flex-direction: column;
+        background-color: rgba(93, 56, 153, 0.9);
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        transition: left 0.3s ease;
+        z-index: 1000;
+        overflow-y: auto;
+    }
+
+    nav.active ul {
+        left: 0;
+    }
+
+    nav ul li {
+        margin: 15px 0;
+    }
+
+    nav ul li a {
+        font-size: 24px;
+        padding: 15px;
+        display: block;
+        text-align: left;
+    }
+
+    .hero {
+        padding-top: 150px;
+        flex-direction: column;
+    }
+
+    .contact-item {
+        width: 100%;
+        max-width: none;
+        margin-bottom: 20px;
+    }
+
+    /* Footer container layout en pantallas pequeñas */
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .footer-content {
+        align-items: center;
+    }
+
+    .footer-container img {
+        margin-bottom: 20px;
+    }
+}
+
+/* Ajustes adicionales para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    nav ul {
+        font-size: 14px;
+    }
+
+    .contact-item {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-container img {
+        margin-bottom: 20px;
+    }
+}

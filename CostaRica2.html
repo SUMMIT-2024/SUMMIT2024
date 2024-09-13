@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALTAC International Summit 2024</title>
+    <link rel="stylesheet" href="CostaRica2.css">
+    <script>
+        function showContent(type) {
+            let content = document.getElementById('content');
+            if (type === 'Maravillas') {
+                content.innerHTML = "<p>El paisaje costarricense es una vibrante paleta de colores, desde las aguas cristalinas del Caribe hasta las majestuosas olas del Pacífico...</p>";
+            } else if (type === 'Infraestructura') {
+                content.innerHTML = "<p>Costa Rica cuenta con una infraestructura moderna y bien desarrollada...</p>";
+            } else if (type === 'Sostenibilidad') {
+                content.innerHTML = "<p>Costa Rica es líder mundial en sostenibilidad y ecoturismo...</p>";
+            } else if (type === 'Actividades') {
+                content.innerHTML = "<p>Las actividades en Costa Rica son tan diversas como su paisaje...</p>";
+            } else if (type === 'Cultura') {
+                content.innerHTML = "<p>La cultura costarricense está impregnada de tradiciones ricas y variadas...</p>";
+            } else if (type === 'Seguridad') {
+                content.innerHTML = "<p>Costa Rica es conocida por ser uno de los países más seguros de América Latina...</p>";
+            }
+
+            let paragraph = content.querySelector('p');
+            if (paragraph) {
+                paragraph.style.animation = 'none'; 
+                void paragraph.offsetWidth;
+                paragraph.style.animation = 'fadeIn 1s forwards'; 
+            }
+        }
+
+        // Script para abrir/cerrar el menú en pantallas pequeñas
+        const navToggle = document.querySelector('.nav-toggle');
+        const nav = document.querySelector('nav');
+
+        navToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="Imagenes/altac.png" alt="ALTAC International">
+            </div>
+            <button class="nav-toggle">☰</button> <!-- Botón para abrir/cerrar el menú en pantallas pequeñas -->
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li>
+                        <a href="#">About</a>
+                        <ul class="dropdown">
+                            <li><a href="ALTAC.html">ALTAC Inc</a></li>
+                            <li><a href="CostaRica.html">Costa Rica</a></li>
+                            <li><a href="SUMMIT.html">Summit</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Schedule</a>
+                        <ul class="dropdown">
+                            <li><a href="tour.html">Tour</a></li>
+                            <li><a href="event.html">Event</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Agreegments</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Bienvenidos a Costa Rica</h1>
+            <h2>Costa Rica, una joya escondida en el corazón de América Central...</h2>
+            <section class="content-section">
+                <button onclick="showContent('Maravillas')">Maravillas Naturales</button>
+                <button onclick="showContent('Infraestructura')">Infraestructura y Conectividad</button>
+                <button onclick="showContent('Sostenibilidad')">Sostenibilidad y Ecoturismo</button>
+                <button onclick="showContent('Actividades')">Actividades para Todos los Gustos</button>
+                <button onclick="showContent('Cultura')">Cultura y Tradición</button>
+                <button onclick="showContent('Seguridad')">Seguridad y Hospitalidad</button>
+                <div id="content"></div>
+            </section>
+            <h3>Costa Rica es un destino de ensueño que ofrece el equilibrio perfecto entre aventura, relajación...</h3>
+        </div>
+    </section>
+</body>
+</html>

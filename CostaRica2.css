@@ -1,0 +1,242 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face{
+    font-family: 'Futura';
+    src: url('caligrafias/FuturaStd-Book.otf') format('truetype');
+}
+
+body {
+    font-family: 'Futura';
+    font-weight: bold;
+}
+
+header {
+    background-color: rgba(93, 56, 153, 0.9);
+    padding: 10px 0;
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    top: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    position: relative;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-family: 'Futura';
+}
+
+nav ul li .dropdown {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(75, 35, 139, 0.9);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    visibility: hidden;
+}
+
+nav ul li:hover .dropdown {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding-left: 50px;
+    box-sizing: border-box;
+    background: url('Imagenes/CostaRica2.png');
+    background-size: cover;
+    text-align: center;
+    color: #000000;
+    margin-top: 70px;
+}
+
+.hero h1 {
+    color: white;
+    font-family: 'Futura';
+    font-size: 4rem;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.hero h2, .hero h3 {
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 80%;
+    margin: 20px auto;
+    text-align: center;
+    color: #ffffff;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    font-family: 'Futura';
+}
+
+.content-section button {
+    background-color: rgba(93, 56, 153, 0.9);
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    font-family: 'Futura';
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.content-section button:hover {
+    background-color: rgba(93, 56, 153, 1);
+    transform: scale(1.05);
+}
+
+.content-section button:active {
+    background-color: rgba(93, 56, 153, 0.8);
+    transform: scale(0.95);
+}
+
+#content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 40px;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 900px;
+    text-align: justify;
+    color: #333;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin: 20px auto;
+    font-family: 'Futura';
+}
+
+#content p {
+    margin: 0;
+    padding: 15px 0;
+    text-align: center;
+}
+
+/* Botón de navegación oculto en pantallas grandes */
+.nav-toggle {
+    display: none;
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Mostrar el botón de navegación solo en pantallas pequeñas */
+    .nav-toggle {
+        display: block;
+        font-size: 24px;
+        color: #fff;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 1001;
+    }
+
+    nav ul {
+        flex-direction: column;
+        background-color: rgba(93, 56, 153, 0.9);
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        transition: left 0.3s ease;
+        z-index: 1000;
+        overflow-y: auto;
+    }
+
+    nav.active ul {
+        left: 0;
+    }
+
+    nav ul li {
+        margin: 15px 0;
+    }
+
+    nav ul li a {
+        font-size: 24px;
+        padding: 15px;
+        display: block;
+        text-align: left;
+    }
+
+    .hero {
+        padding-top: 100px;
+    }
+}
+
+/* Ajustes adicionales para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    nav ul {
+        font-size: 14px;
+    }
+
+    .button-container button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+
+    #content {
+        font-size: 1rem;
+    }
+}
+
